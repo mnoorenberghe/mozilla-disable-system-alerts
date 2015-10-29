@@ -16,7 +16,7 @@ package:
 	@echo "Packaging"
 
 	mkdir -p "$(BUILD_DIR)"
-	rsync -am --include='*.js' --include '*.jsm' --include='*.json' --include='*.css' --include='*.exe' --include='*.xul' --include='*.png' --include='*.manifest' --include='*.properties' --include='*.rdf' --include='*.xml' -f 'hide,! */' ./ "$(BUILD_DIR)/$(HOTFIX)"
+	rsync -am --include='*.js' --include '*.jsm' --include='*.json' --include='*.css' --include='*.exe' --include='*.xul' --include='*.png' --include='*.manifest' --include='*.properties' --include='*.rdf' --include='*.xml' --exclude "build" -f 'hide,! */' . "$(BUILD_DIR)"
 
 # 	Clean up unwanted files
 	find "$(BUILD_DIR)" -depth -name '*~' -exec rm -rf "{}" \;
@@ -25,7 +25,7 @@ package:
 	find "$(BUILD_DIR)" -depth -name 'Thumbs.db' -exec rm "{}" \;
 
 # 	Create the XPI
-	rm -f "$(BUILD_DIR)/$(XPI)"
+	rm -f "$(XPI)"
 	cd $(BUILD_DIR) && zip -qr9XD "../$(XPI)" * && cd ../..
 	@echo "Done: $(BUILD_DIR)/$(XPI)"
 

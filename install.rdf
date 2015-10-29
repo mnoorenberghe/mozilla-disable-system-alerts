@@ -5,7 +5,8 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>disable-system-alerts@matthew.noorenberghe.com</em:id>
-    <em:version>0.9</em:version>
+    <em:version>0.9.2</em:version>
+    <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
 
     <em:name>Disable System Alerts</em:name>
